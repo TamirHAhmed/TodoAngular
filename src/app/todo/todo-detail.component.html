@@ -1,0 +1,15 @@
+<div class="container">
+  <h5>Todo Edit</h5>
+  <div class="row">
+      <div class="col-md-8">
+          <input *ngIf="todo" type="text" [(ngModel)]="todo.todoItem" class="form-control" />
+      </div>
+      <div class="col-md-4">
+          <div (click)="save()" class="btn btn-success">
+              Save
+          </div>
+      </div>
+  </div>
+</div>
+
+

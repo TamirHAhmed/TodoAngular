@@ -1,0 +1,33 @@
+
+<div class="container">
+  <h5>Todo List</h5>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-3">
+      <input class="form-control" type="text" [(ngModel)]="todoName" />
+    </div>
+    <div class="col-md-4">
+      <div (click)="createItem()" class="btn btn-success pull-left">
+        Add
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row" *ngFor="let todo of todos">
+    <div class="col-md-5 col-md-offset-3">
+      <h4 (click)="switchState(todo)" [class.done]="todo.isDone">{{todo.todoItem}}</h4>
+    </div>
+    <div class="col-md-2">
+      <a [routerLink]="['/detail', todo.id]">
+        <div class="btn btn-primary pull-right">
+          Edit
+        </div>
+      </a>
+    </div>
+    <div class="col-md-2">
+      <div (click)="deleteItem(todo)" class="btn btn-danger pull-left">
+        Delete
+      </div>
+    </div>
+  </div>
+</div>
