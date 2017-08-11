@@ -17,6 +17,10 @@ Look at the angular official guide first, as this one doesn't deviate much from 
 First: download the .NET Core project titled "TodoCore" from the following 
 link: https://github.com/TamirHAhmed/TodoCore
 
+Apply the migrations and change the Connection string to point at your SQL server.
+
+Run the Identity server project and register a new user.
+
 Second: Using command system, navigate to the folders of "TodoCore" and "TodoAPI", and in each one run the command:
 ```
 dotnet run <app name>
