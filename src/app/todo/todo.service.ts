@@ -3,10 +3,11 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { AuthService } from '../auth/auth.service';
 import { Todo } from './todo';
+import { API_URL } from '../constants';
 
 @Injectable()
 export class TodoService {
-  private todosUrl = 'http://localhost:5001/api/Todo'; // URL to web api
+  private todosUrl = `${API_URL}/api/Todo`; // URL to web api
   private headers: Headers; // = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http, private authService: AuthService) {}
@@ -34,7 +35,7 @@ export class TodoService {
   }
 
   getId(): Promise<any> {
-    const url = 'http://localhost:5001/api/todo/GetInfo';
+    const url = `${this.todosUrl}/GetInfo`;
     this.headers = this.authService.setHeaders();
     let options = new RequestOptions({ headers: this.headers});
 

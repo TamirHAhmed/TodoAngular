@@ -3,7 +3,7 @@ import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
-
+import { AUTH_URL, API_URL, APP_URL } from '../constants';
 
 @Injectable()
 export class AuthService {
@@ -19,7 +19,7 @@ export class AuthService {
 
     constructor(private _http: Http,  private _router: Router) {
 
-        this.actionUrl =  'http://localhost:5001/api/Todo';
+        this.actionUrl =  `${API_URL}/api/Todo`;
 
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
@@ -65,10 +65,6 @@ export class AuthService {
             this.store('authorizationData', '');
         }
 
-        var date = new Date();
-        var numberOfDaysToAdd = 10;
-        date.setDate(date.getDate() + numberOfDaysToAdd);
-
         this.store('authorizationData', token);
         this.store('authorizationDataIdToken', id_token);
         this._isAuthorized = true;
@@ -87,8 +83,8 @@ export class AuthService {
         let nonce = 'N' + Math.random() + '' + Date.now();
         let state = Date.now() + '' + Math.random();
 
-        let authorizationUrl = 'http://localhost:5000/connect/authorize';
-        let redirect_uri = 'http://localhost:3000';
+        let authorizationUrl =  `${AUTH_URL}/connect/authorize`;
+        let redirect_uri = APP_URL;
         let client_id = 'angular.client';
         let response_type = 'id_token token';
         let scope = 'openid profile data';
@@ -133,7 +129,7 @@ export class AuthService {
                 id_token = result.id_token;
 
                 this.store('authorizationData', token);
-
+                console.log(token);
                 let dataIdToken: any = this.getDataFromToken(id_token);
 
                 // validate nonce
@@ -159,8 +155,8 @@ export class AuthService {
     }
 
     public Logoff() {
-        let authorizationUrl = 'http://localhost:5000/connect/endsession';
-        let post_logout_redirect_uri = 'http://localhost:3000';
+        let authorizationUrl = `${AUTH_URL}/connect/endsession`;
+        let post_logout_redirect_uri = APP_URL;
         let id_token_hint = this.retrieve('authorizationDataIdToken');
 
         let url =
@@ -253,7 +249,7 @@ export class AuthService {
 
     public getUserData = (): Observable<string[]> => {
         this.setHeaders();
-        return this._http.get('http://localhost:5000/connect/userinfo', {
+        return this._http.get(`${AUTH_URL}/connect/userinfo`, {
             headers: this.headers,
             body: ''
         }).map(res => {
