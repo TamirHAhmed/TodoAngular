@@ -9,13 +9,9 @@ import { TodoComponent } from './todo.component';
 import { TodoDetailComponent } from './todo-detail.component';
 
 const routes: Routes = [
-  { path: '',
-    component: TodoComponent,
-    canActivate: [AuthGuard],
-    children: [
-      { path: 'detail/:id', component: TodoDetailComponent,  canActivate: [AuthGuard]  }
-    ]
-  }
+  { path: '', component: TodoComponent, canActivate: [AuthGuard]},
+  { path: 'detail/:id', component: TodoDetailComponent,  canActivate: [AuthGuard] }
+
 ];
 
 @NgModule({

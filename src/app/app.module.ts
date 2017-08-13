@@ -16,9 +16,9 @@ import { ForbiddenComponent } from './forbidden.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
     TodoModule,
-    AuthModule
+    AuthModule,
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,

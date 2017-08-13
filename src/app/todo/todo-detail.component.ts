@@ -22,9 +22,11 @@ export class TodoDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log('here');
     this.route.paramMap
       .switchMap((params: ParamMap) => this.todoService.getTodo(+params.get('id')))
       .subscribe(todo => this.todo = todo);
+      
   }
 
   async save() {
