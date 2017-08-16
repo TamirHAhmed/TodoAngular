@@ -41,23 +41,24 @@ Please check damienbod's github for more complete examples on this subject:
 https://github.com/damienbod/AspNet5IdentityServerAngularImplicitFlow
 
 
-
 ### Projects connected to this one
 
 ### Todo Core:
 Asp.net core web api + identity server projects that serves as backend and authorization server respectively.
+
 link: https://github.com/TamirHAhmed/TodoCore
 
 ### Todo Angular:
-Front end for the todo app using angular v4
+Front end for the todo app using angular v4.
+
 link: https://github.com/TamirHAhmed/TodoAngular
 
 ### Todo React Native:
-Cross platform mobile app for the todo app using react native - Expo - redux - redux-thunk .
-link:https://github.com/TamirHAhmed/Todo-React-Native
+Cross platform mobile app for the todo app using react native - Expo - redux - redux-thunk.
 
+link: https://github.com/TamirHAhmed/Todo-React-Native
 
 
 #### Contribute
 
-Everyone are welcome to contribute this simple boilerplate to have the basics of security integrated with authentication/authorization tokens.
+Everyone is welcome to contribute this simple boilerplate to have the basics of security integrated with authentication/authorization tokens.
